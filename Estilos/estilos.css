@@ -1,0 +1,102 @@
+.logo{
+    position: absolute; 
+    top: 20px; 
+    right:1800px; 
+    height:50px;
+
+}
+
+.fondo{
+    background-color: #F3F5FC;
+
+}
+
+.textarea-style {
+    width: 577px; 
+    height: 500px; 
+    top: 168px; 
+    left: 200px; 
+    position: absolute; 
+    border-radius: 50px; 
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+
+.boton-estilo {
+    width: 328px; 
+    height: 67px; 
+    border-radius: 24px; 
+    padding: 24px; 
+    gap: 8px; 
+    background-color: darkblue; 
+    color: white; 
+    position: absolute; 
+    bottom: 150px; 
+    margin-top: 20px; 
+    left: 100;
+}
+
+.boton-estilo2 {
+    width: 328px; 
+    height: 67px; 
+    left: 500px; 
+    border-radius: 24px; 
+    padding: 24px; 
+    gap: 8px; 
+    background-color: #D8DFE8; 
+    color: black; 
+    position: absolute; 
+    bottom: 150px; 
+    margin-top: 20px; 
+}
+
+.resultado{
+    width: 400px;
+  height: 944px;
+  left: 1000px;
+  top: 40px; position: absolute; background: #FFFFFF;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  border-radius: 32px; width:800px; height: 900px;
+}
+
+.textarea-resultado{
+    border-color: darkblue; 
+    border-radius: 50px; 
+    width: 800px; 
+    height: 500px; 
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 150%;
+    text-align: center;
+    color: #0A3871;
+}
+.muneco{
+    position: absolute; 
+    top: 525px; 
+    left: 275px; 
+    height: 250px;
+}
+
+.boton-estilo3{
+    width: 328px; 
+    height: 67px; 
+    left: 250px; 
+    border-radius: 24px; 
+    padding: 24px; 
+    gap: 8px; 
+    background-color: #E5E7E9; 
+    color: black; 
+    position: absolute; 
+    bottom: 50px; 
+    margin-top: 20px;
+}
+
+
+

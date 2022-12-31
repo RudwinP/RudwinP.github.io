@@ -1,0 +1,96 @@
+<meta charset="UTF-8">
+<html>
+    <link rel="stylesheet" href="Estilos/estilos.css">
+    <head>
+        <title>Encripta tu mensaje</title>
+        <img src="imagenes/Logo.png" class="logo">
+        <body class=".fondo">
+            
+            <div id="texto-y-botones">
+                <textarea id="texto" name="texto" class="textarea-style" onclick="this.value=''" placeholder="Escribe tu texto aquí"></textarea>
+
+                <button type="button" onclick="encriptar()" class="boton-estilo">Encriptar</button>
+
+                <button type="button" onclick="desencriptar()" class="boton-estilo2">Desencriptar</button>
+
+            </div>
+
+            <div id="resultado" class="resultado">
+                <br>
+                <textarea id="resultado-texto" readonly="true" class="textarea-resultado" placeholder="Aqui aparecera tu mensaje incriptado"></textarea>
+
+                <img src="imagenes/Muñeco.jpg" alt="Mi imagen" class="muneco">
+
+                <button type="button" onclick="copiarResultado()" class="boton-estilo3">Copiar</button>
+
+            </div>
+            <script>
+               const sustituciones = [
+                { caracter: "e", sustitucion: "enter" },
+                { caracter: "i", sustitucion: "imes" },
+                { caracter: "a", sustitucion: "ai" },
+                { caracter: "o", sustitucion: "ober" },
+                { caracter: "u", sustitucion: "ufat" }
+                ];
+
+                function validarFormulario() {
+                const texto = document.getElementById("texto").value;
+                // Validamos que el texto no contenga mayúsculas, acentos ni caracteres especiales
+                if (/[A-ZÁÉÍÓÚÜÑ]/.test(texto) || /[^a-z\s]/i.test(texto.normalize("NFD"))) {
+                    alert("El texto no debe contener mayúsculas, acentos ni caracteres especiales");
+                    return false;
+                }
+                return true;
+                }
+
+                function encriptar() {
+                if (!validarFormulario()) return;
+                // Convertimos el texto a minúsculas y eliminamos los acentos y caracteres especiales
+                const texto = document.getElementById("texto").value.toLowerCase().normalize("NFD").replace(/[^\w\s]/g, "");
+                const resultado = texto.split("").map(caracter => {
+                    const sustitucion = sustituciones.find(s => s.caracter === caracter);
+                    return sustitucion ? sustitucion.sustitucion : caracter;
+                });
+                document.getElementById("resultado-texto").innerHTML = resultado.join("");
+                }
+
+                function desencriptar() {
+                if (!validarFormulario()) return;
+                // Convertimos el texto a minúsculas y eliminamos los acentos y caracteres especiales
+                const texto = document.getElementById("texto").value.toLowerCase().normalize("NFD").replace(/[^\w\s]/g, "");
+                let resultado = "";
+                for (let i = 0; i < texto.length; i++) {
+                    let caracter = texto[i];
+                    const sustitucion = sustituciones.find(s => texto.substring(i, i + s.sustitucion.length) === s.sustitucion);
+                    if (sustitucion) {
+                    caracter = sustitucion.caracter;
+                    i += sustitucion.sustitucion.length - 1;
+                    }
+                    resultado += caracter;
+                }
+                document.getElementById("resultado-texto").innerHTML = resultado;
+                }
+
+                function copiarResultado() {
+                const resultado = document.getElementById("resultado-texto");
+                const seleccion = window.getSelection();
+                seleccion.removeAllRanges();
+                const rango = document.createRange();
+                rango.selectNodeContents(resultado);
+                seleccion.addRange(rango);
+                document.execCommand("copy");
+                }
+
+            </script>
+        
+        </body>
+        <footer style="background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        margin-top:850px; width: 970px; border-radius: 45px;">
+      <p>Copyright 2022 / Rudwin Enrique Peñate Rivas</p>
+      <p>Challeng Alura Latam + Oracle Next Education</p>
+    </footer>
+    </head>
+</html>
